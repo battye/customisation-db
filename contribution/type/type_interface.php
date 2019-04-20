@@ -133,4 +133,11 @@ interface type_interface
 	 * @return mixed
 	 */
 	public function get_prevalidator();
+
+	/**
+	 * To phase out a type, we can start by hiding it in the queue.
+	 *
+	 * @return boolean
+	 */
+	public function hide_in_queue();
 }

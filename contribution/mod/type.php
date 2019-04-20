@@ -279,4 +279,12 @@ class type extends base
 	{
 		return $this->prevalidator;
 	}
+
+	/**
+	 * @{inheritDoc}
+	 */
+	public function hide_in_queue()
+	{
+		return true;
+	}
 }

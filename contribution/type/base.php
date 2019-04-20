@@ -387,4 +387,12 @@ class base implements type_interface
 	{
 		return null;
 	}
+
+	/**
+	 * @{inheritDoc}
+	 */
+	public function hide_in_queue()
+	{
+		return false;
+	}
 }
