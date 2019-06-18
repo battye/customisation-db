@@ -16,6 +16,7 @@ namespace phpbb\titania\event;
 use phpbb\db\driver\driver_interface as db_driver_interface;
 use phpbb\event\data;
 use phpbb\auth\auth;
+use phpbb\language\language;
 use phpbb\template\template;
 use phpbb\titania\controller\helper;
 use phpbb\titania\ext;
@@ -37,6 +38,9 @@ class main_listener implements EventSubscriberInterface
 
 	/** @var \phpbb\template\template */
 	protected $template;
+
+	/** @var \phpbb\language\language */
+	protected $language;
 
 	/** @var \phpbb\titania\controller\helper */
 	protected $controller_helper;
@@ -64,11 +68,12 @@ class main_listener implements EventSubscriberInterface
 	 * @param string $ext_root_path Titania root path
 	 * @param string $php_ext PHP file extension
 	 */
-	public function __construct(db_driver_interface $db, user $user, template $template, helper $controller_helper, $phpbb_root_path, $ext_root_path, $php_ext)
+	public function __construct(db_driver_interface $db, user $user, template $template, language $language, helper $controller_helper, $phpbb_root_path, $ext_root_path, $php_ext)
 	{
 		$this->db = $db;
 		$this->user = $user;
 		$this->template = $template;
+		$this->language = $language;
 		$this->controller_helper = $controller_helper;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $php_ext;
@@ -86,6 +91,11 @@ class main_listener implements EventSubscriberInterface
 
 			// Check whether a user is removed from a team
 			'core.group_delete_user_after'				=> 'remove_users_from_subscription',
+
+			// Check whether a user is deleted
+			//'core.acp_users_overview_before'			=> 'create_user_delete_message',
+			'core.acp_users_overview_before'			=> 'user_delete',
+			'core.delete_user_after'					=> 'remove_contributions',
 		);
 	}
 
@@ -238,6 +248,27 @@ class main_listener implements EventSubscriberInterface
 
         $dom->saveChanges();
     }
+
+    public function user_delete($event)
+	{
+echo 'hello';
+		//$this->language->add_lang('info_acp_titania', 'phpbb/titania');
+		//$this->user->add_lang();
+		//@$this->user->lang['CONFIRM_OPERATION'] = 'test 12345';
+	}
+
+	/**
+	 * Automatically remove topics and contributions when user is deleted (CUSTDB-766)
+	 * @param $event
+	 */
+    public function remove_contributions($event)
+	{
+		// Delete contributions
+
+		// Loop over contribs and run $this->contrib->delete();
+
+		// Delete messages in Titania
+	}
 
 	/**
 	 * Remove users from queue subscription if they are removed from a team and subsequently lose all queue permissions

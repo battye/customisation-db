@@ -213,6 +213,7 @@ services:
             - '@dbal.conn'
             - '@user'
             - '@template'
+            - '@language'
             - '@phpbb.titania.controller.helper'
             - '%core.root_path%'
             - '%phpbb.titania.root_path%'
