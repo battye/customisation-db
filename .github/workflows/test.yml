@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Codespace for testing phpBB Extension
-        uses: battye/phpbb-extension-tester@81943012f41db70992d4f1c56ca5ae7fda8c6c22
+        uses: battye/phpbb-extension-tester@8194301
