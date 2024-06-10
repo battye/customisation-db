@@ -1,0 +1,5 @@
+jobs:
+  test:
+    steps:
+      - name: Create Codespace for testing phpBB Extension
+        uses: battye/phpbb-extension-tester@main
