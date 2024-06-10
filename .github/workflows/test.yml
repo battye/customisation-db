@@ -6,5 +6,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: 'main'
       - name: Create Codespace for testing phpBB Extension
-        uses: battye/phpbb-extension-tester@main
+        uses: battye/phpbb-extension-tester
