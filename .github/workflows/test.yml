@@ -14,7 +14,10 @@ jobs:
         with:
           source-branch: '3.3.x'
           destination-branch: 'codespace-test'
-      - run: echo destination-branch "$DESTINATION_BRANCH"
+      - name: Show output
+        run: |
+          echo destination-branch "$DESTINATION_BRANCH"
+          echo "### Your Codespace is ready to run on branch $DESTINATION_BRANCH! :rocket:" >> $GITHUB_STEP_SUMMARY
         shell: bash
         env:
           DESTINATION_BRANCH: ${{ steps.create-codespace.outputs.destination-branch }}
