@@ -3,7 +3,8 @@
 on: [push] 
 
 jobs:
-  test:
+  codespace:
+    name: Create configuration for Codespace
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
