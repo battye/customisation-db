@@ -12,3 +12,4 @@ jobs:
         uses: battye/phpbb-extension-tester@main
         with:
           source-branch: '3.3.x'
+          destination-branch: 'codespace-test'
