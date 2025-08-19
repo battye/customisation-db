@@ -46,6 +46,11 @@ class update_url_field_values extends base
 		$limit = 250;
 		$i = 0;
 
+		if (empty($start))
+		{
+			$start = 0;
+		}
+
 		$sql = "SELECT {$field}_id, {$field}_url, {$field}_type
 			FROM $table";
 		$result = $this->db->sql_query_limit($sql, $limit, $start);
