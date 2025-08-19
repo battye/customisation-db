@@ -46,6 +46,7 @@ class update_url_field_values extends base
 		$limit = 250;
 		$i = 0;
 
+		// This is required to force an int (phpBB4)
 		if (empty($start))
 		{
 			$start = 0;
