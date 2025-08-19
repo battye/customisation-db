@@ -13,8 +13,8 @@
 
 namespace phpbb\titania\contribution\translation;
 
-use Phpbb\TranslationValidator\Cli;
-use Phpbb\TranslationValidator\Command\ValidateCommand;
+//use Phpbb\TranslationValidator\Cli;
+//use Phpbb\TranslationValidator\Command\ValidateCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -226,7 +226,7 @@ class prevalidator
 
 				// Set up an instance of the translation validation script
 				// https://github.com/phpbb/phpbb-translation-validator
-				$app = new Cli();
+				/*$app = new Cli();
 				$app->add(new ValidateCommand());
 				$translation = $app->find('validate');
 
@@ -234,7 +234,7 @@ class prevalidator
 				$commandTester->execute($inputs);
 
 				// Return the output of the translation validation script
-				$results = $commandTester->getDisplay();
+				$results = $commandTester->getDisplay();*/
 			}
 
 			catch (\phpbb\extension\exception $e)
