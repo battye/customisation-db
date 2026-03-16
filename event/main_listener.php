@@ -194,7 +194,7 @@ class main_listener implements EventSubscriberInterface
 
 	public function startup($event)
 	{
-		if ($event->getRequestType() !== HttpKernelInterface::MASTER_REQUEST ||
+		if ($event->getRequestType() !== HttpKernelInterface::MAIN_REQUEST ||
 			strpos($event->getRequest()->attributes->get('_controller'), 'phpbb.titania') !== 0)
 		{
 			return;
