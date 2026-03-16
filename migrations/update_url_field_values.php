@@ -30,17 +30,17 @@ class update_url_field_values extends base
 		);
 	}
 
-	public function update_post_url($start)
+	public function update_post_url($start = 0)
 	{
 		return $this->update_url('posts', 'post', $start);
 	}
 
-	public function update_topic_url($start)
+	public function update_topic_url($start = 0)
 	{
 		return $this->update_url('topics', 'topic', $start);
 	}
 
-	protected function update_url($table, $field, $start)
+	protected function update_url($table, $field, $start = 0)
 	{
 		$table = $this->get_titania_table_prefix() . $table;
 		$limit = 250;
