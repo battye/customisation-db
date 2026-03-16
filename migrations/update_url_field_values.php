@@ -45,6 +45,7 @@ class update_url_field_values extends base
 		$table = $this->get_titania_table_prefix() . $table;
 		$limit = 250;
 		$i = 0;
+		$start = (int) $start;
 
 		$sql = "SELECT {$field}_id, {$field}_url, {$field}_type
 			FROM $table";
